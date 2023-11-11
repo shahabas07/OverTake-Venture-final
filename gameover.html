@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Overtake Venture</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="assets/suv.png" />
+</head>
+<body>
+    <div class="container3">
+    <a href="index.html"><img src="assets/home.png" alt="" id="home"></a>
+    <p id="Havean">Your Car Has Arrived In Heaven!</p>
+    <h3 id="playername"></h3>
+    <div class="whole">
+        <!-- ------score and highscore box---------- -->
+    <div class="score" > <h2>SCORE</h2><h1 id="score">11</h1></div>
+    <div id="phrases"></div>
+    <div class="hiscore"> <h2>HISCORE</h2><h1 id="hiscore">111</h1> </div>
+    <div id="gameOverScreen">
+        
+       
+    </div>
+    </div>
+         <!-- -----------playagiain button----------------------- -->
+    <a href="gameplay.html"><img src="assets/playagain.png" alt="" id="playagain"></a>
+    </div>
+
+<!-- ---------------gameover javascript------------------------- -->
+<script>
+
+// window.addEventListener('beforeunload', function () {
+//     localStorage.clear();
+// });
+let carcrash = new Audio("assets/carcrash.mp3"); 
+const HIscorePhrase = ["Superb! Cross The Highscore","Congratulations champion!", "Victory is yours!", "Well done!" , "WoW Cracked The Highscore!"];
+const LoScorePhrase = ["Try more to cross Hiscore!", "Try again. To Crack!", "You can do better!","Good Game!!"];
+const savedUsername = sessionStorage.getItem("savedUsername");
+const savedName = sessionStorage.getItem("savedName");
+var retrievedN = sessionStorage.getItem('nValue')|| 0;
+var HS= localStorage.getItem("high") || 0;
+
+carcrash.play();
+if (Number(retrievedN) > Number(HS)){        //checking score is greaterthan highscore
+    HS = retrievedN;                               
+    localStorage.setItem("high",HS); 
+}
+document.getElementById("score").innerText = `${retrievedN}` //showing score and highscore to user
+document.getElementById("hiscore").innerText = `${HS}`
+
+document.getElementById("Havean").innerText = `${savedUsername}'s Car Has Arrived In Heaven!`
+document.getElementById("playername").innerHTML =`Name:${savedName}`
+console.log("Saved Name: " + savedName);
+
+function getRandomIndex(array) {                       
+    return Math.floor(Math.random() * array.length);  //generate random 
+}
+
+const playerWon = retrievedN > HS; //checking player score morethan highscore
+const showingphrase = document.getElementById('phrases'); 
+
+if (playerWon) {
+    showingphrase.innerText = HIscorePhrase[getRandomIndex(HIscorePhrase)];
+} else {                                                                       //displaying random phrases
+    showingphrase.innerText = LoScorePhrase[getRandomIndex(LoScorePhrase)];
+}
+</script>
+
+</body>
+</html>

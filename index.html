@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Overtake Venture</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/x-icon" href="assets/suv.png" />
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- ---------------game-logo---------------------- -->
+    <img src="assets/gamelogo.png" alt="gamelogo" id="biglogo" />
+
+    <!-- -------------------I button (instruction and about)------------------------------- -->
+    <div class="info">
+      <input type="image" src="assets/info.png" alt="Submit" id="infobutton" onclick="openpopup()" />
+      <label for="infobutton">HOW TO PLAY?</label>
+    </div>
+
+<!-- ------------------name and username input-------------------------- -->
+    <form action="#">
+      <div id="names">
+        <input type="text" id="username" name="username" placeholder="       Username             " required />
+        <br />
+        <input type="text" id="name" name="name" placeholder="       Your name          " required />
+        <br />
+        
+      </div>
+      <input type="image" src="assets/play.png" alt="Submit" id="yellowbutton" />
+    </form>
+  </div>
+
+ 
+
+    <!-- --------------------playbutton-popup------------------ -->
+    <div class="play-container" id="popy">
+      <a href="gameplay.html"><button class="play-button" >Play</button></a>
+    </div>
+
+  <!-- ------------------------------info-popup------------------------------------------- -->
+  <div class="popup" id="popup">
+    <div class="leftarrow" id="leftarrow">
+      <img src="assets/left-arrow.png" alt="" onclick="closepopup()" />
+    </div>
+    <div class="bigb">
+      <div class="box1" id="box1">
+        <!-- --------------------instructions for user------------------- -->
+        <h1>Instructions</h1>
+        <h2>
+          Move the car without touching any other cars or going off the road
+          to maximize your score. Use the ↑ Up Arrow and ↓ Down Arrow keys to
+          move the car forward and backward, and the ← Left Arrow and → Right
+          Arrow keys to maneuver the car from side to side.
+        </h2>
+      </div>
+      <div class="box2" id="box2">
+        <h1>credits</h1>
+        <!-- -----------------------inspired from---------------------------- -->
+        <h2>
+          This game created by shahabas aman inspired by asphalt 1 game. the
+          game is created for study purposes only.
+        </h2>
+      </div>
+    </div>
+  </div>
+  
+ <script src="homepage.js"> </script>
+
+</body>
+
+</html>
